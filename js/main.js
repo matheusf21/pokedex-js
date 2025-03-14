@@ -37,7 +37,7 @@ const todosTipos = [
   { nome: "Gelo", cor: "rgba(102, 204, 255, 0.75)" },
   { nome: "Inseto", cor: "rgba(170, 187, 34, 0.75)" },
   { nome: "Lutador", cor: "rgba(187, 85, 68, 0.75)" },
-  { nome: "Normal", cor: "rgba(170, 153, 153, 0.75)" },
+  { nome: "Normal", cor: "rgba(170, 170, 153, 0.75)" },
   { nome: "Pedra", cor: "rgba(187, 170, 102, 0.75)" },
   { nome: "Planta", cor: "rgba(119, 204, 85, 0.75)" },
   { nome: "Psíquico", cor: "rgba(255, 85, 153, 0.75)" },
@@ -70,37 +70,37 @@ async function getPokemon(resource) {
 }
 
 async function searchPokemon() {
-    if (loading) return;
-    let search = document.querySelector('input[type="search"]').value;
-    if (search != "") {
-        loading = true;
-        const pokemon = await getPokemon("pokemon/" + search);
-        loading = false;
-        return pokemon;
-    }
+  if (loading) return;
+  let search = document.querySelector('input[type="search"]').value;
+  if (search != "") {
+    loading = true;
+    const pokemon = await getPokemon("pokemon/" + search);
+    loading = false;
+    return pokemon;
+  }
 }
 
 function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function carousel(sprites) {
-    return `<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-            <img src="${sprites.other["official-artwork"].front_default}" class="d-block w-100" alt="Padrão">
-            </div>
-            <div class="carousel-item">
-            <img src="${sprites.other["official-artwork"].front_shiny}" class="d-block w-100" alt="Shiny">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>`;
+  return `<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img src="${sprites.other["official-artwork"].front_default}" class="d-block w-100" alt="Padrão">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="${sprites.other["official-artwork"].front_shiny}" class="d-block w-100" alt="Shiny">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+        </div>`;
 }
